@@ -9,13 +9,12 @@ class Solution(object):
     'M': 1000}
 
     def romanToInt(self, s):
-        sum = 0
-        previous = 0
-        for letter in s[::-1]:
-            number = self.symbol[letter]
-            if number >= previous:
-                sum += number
-            else:
-                sum -= number
-            previous = number
-        return sum
+            sum = 0
+            s = 'I' + s[::-1]
+            for ind, letter in enumerate(s[1:], 1):
+                number = self.symbol[letter]
+                if number >= self.symbol[s[ind - 1]]:
+                    sum += number
+                else:
+                    sum -= number
+            return sum
