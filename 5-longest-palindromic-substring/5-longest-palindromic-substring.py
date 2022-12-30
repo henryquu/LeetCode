@@ -5,8 +5,7 @@ class Solution:
         for i in range(n):
             for j in range(i + 1, n):
                 if j - i + 1 > len(m) and s[i] == s[j]:
-                    sub = s[i:j + 1]
-                    if sub == sub[::-1]:
-                        m = sub
+                    if s[i:j + 1] == s[i:j + 1][::-1]:
+                        m = s[i:j + 1]
 
         return m
