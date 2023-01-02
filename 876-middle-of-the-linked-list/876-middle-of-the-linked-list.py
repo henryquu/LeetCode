@@ -4,14 +4,9 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        middle = head
-        prev = False
+    def middleNode(self, head):   
+        lst = []
         while head:
-            if prev == True:
-                prev = False
-                middle = middle.next
-            else:
-                prev = True
+            lst.append(head)
             head = head.next
-        return middle
+        return lst[len(lst) // 2]
