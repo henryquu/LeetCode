@@ -6,7 +6,9 @@
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
         middle = head
+
         while head and head.next:
             head = head.next.next
             middle = middle.next
+            
         return middle
