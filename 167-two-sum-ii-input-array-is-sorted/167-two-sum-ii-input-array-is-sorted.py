@@ -1,12 +1,8 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        l = 0
-        r = len(numbers) - 1
-        while l < r:
-            summed = numbers[l] + numbers[r]
-            if summed == target:
-                return [l + 1, r + 1]
-            elif summed < target:
-                l += 1
-            else:
-                r -= 1
+            dic = {}
+
+            for ind, x in enumerate(numbers):
+                if target - x in dic:
+                    return [dic[target - x] + 1, ind + 1]
+                dic[x] = ind
