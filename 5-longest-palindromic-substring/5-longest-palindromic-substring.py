@@ -16,9 +16,6 @@ class Solution:
                 center += 1
                 radius = 0
 
-            if longest[0] == '|' == longest[-1]:
-                longest = ''.join(longest[1::2])
-            else:
-                longest = ''.join(longest[::2])
+            longest = ''.join([a for a in longest if a != '|'])
 
             return longest
