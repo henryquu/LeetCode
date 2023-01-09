@@ -1,3 +1,4 @@
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
-        return sorted([x*x for x in nums])
+        nums[:] = [x*x for x in nums]
+        return sorted(nums)
