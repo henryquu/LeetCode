@@ -1,18 +1,10 @@
 # row1 = s[::numRows + 5]
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
-        if numRows == 1 or numRows >= len(s):
-            return s
+        template = list(range(numRows)) + list(range(numRows - 2, 0, -1))
 
-        rows = [''] * numRows
-        index, step = 0, 1
-
-        for c in s:
-            rows[index] += c
-            if index == 0:
-                step = 1
-            elif index == numRows -1:
-                step = -1
-            index += step
-
-        return ''.join(rows)
+        result = [''] * numRows
+        for i, char in enumerate(s):
+            result[template[i % len(template)]] += char
+            
+        return ''.join(result)
