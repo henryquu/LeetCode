@@ -1,14 +1,12 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        if len(s) % 2:
-            return False
-        
-        lst = []
+        pairs = dict((')(', '][', '}{'))
+        stack = []
 
         for i in s:
-            if lst and (chr(ord(lst[-1]) + 1) == i or chr(ord(lst[-1]) + 2) == i):
-                lst.pop()
-            else:
-                lst.append(i)
+            if i in '([{':
+                stack.append(i)
+            elif len(stack) == 0 or stack.pop() != pairs[i]:
+                return False
 
-        return lst == []
+        return len(stack) == 0
